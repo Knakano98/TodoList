@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //things to do:
-    //3. Need to change to dynamically add a checkbox/ textview too scrollview, creating method would be best
     //4. Add delete function(Checkbox) next to each item
     //5. JSON/Rest shit
 
