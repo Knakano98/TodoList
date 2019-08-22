@@ -10,6 +10,7 @@ class TaskList {
     public void appendTask(String task){
         //Maybe add code to dynamically add lin view of check mark and text view here?
         //How can I store the ID's/indexes of the tasks so i can delete/move them around though
+
         taskList.add(task);
 
     }
