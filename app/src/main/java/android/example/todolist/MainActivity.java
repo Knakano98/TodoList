@@ -16,8 +16,8 @@ import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
     //things to do:
-    //5. JSON/Rest stuff
-
+    //1. Make app rememeber info on shutdown
+    //2. JSON/Rest stuff
 
 
 
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<LinearLayout> LinLays=new ArrayList<>();
     private ArrayList<CheckBox> checkBoxes=new ArrayList<>();
 
+    private Button testButton;
+
 
 
 
@@ -45,24 +47,39 @@ public class MainActivity extends AppCompatActivity {
         scrollView= findViewById(R.id.scrollView);
         containerLinearLayout=  findViewById(R.id.containerLinLayout);
 
+
+
+        //Everytime I alter task list,(delete+add), need to call a function which alters the current arraylist in tasklist1 to json
+        //When app is loaded, need to get json from sharedpreferences, load into tasklist1, then generate the appropriate linviews for it
+
         deleteButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-
                 Iterator<CheckBox> iter=checkBoxes.iterator();
                 while(iter.hasNext()){
                     CheckBox item=iter.next();
                     if(item.isChecked()){
                         containerLinearLayout.removeView(LinLays.get(checkBoxes.indexOf(item)));
                         LinLays.remove(checkBoxes.indexOf(item));
+                        taskList1.removeTask(checkBoxes.indexOf(item));
                         iter.remove();
                     }
                 }
 
 
 
+
             }
         });
 
+
+        //Testing stuff
+        testButton=findViewById(R.id.testButton);
+        testButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+               taskList1.testList();
+
+            }
+        });
 
 
 
